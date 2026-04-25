@@ -221,19 +221,63 @@ class GalaxyPortfolio {
       this.sectionEls.set(sec.id, section);
     });
 
-    // Wire up contact form submit handler
+    // Wire up contact form — real EmailJS integration
+    // Setup: sign up at emailjs.com → create a service linked to your Gmail
+    //        → create a template with variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
+    //        → replace the three placeholders below with your actual IDs
+    const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'user_abc123'
+    const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_gmail'
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_portfolio'
+
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
+
     const form = document.getElementById('contact-form');
     if (form) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = form.querySelector('.contact-submit');
-        btn.classList.add('sent');
-        btn.innerHTML = '<span class="contact-submit-text">Message Sent ✓</span>';
-        setTimeout(() => {
-          btn.classList.remove('sent');
-          btn.innerHTML = '<span class="contact-submit-text">Send Message <span class="arrow">&rarr;</span></span>';
+
+        // Guard: warn if not yet configured
+        if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+          btn.innerHTML = '<span class="contact-submit-text">⚠ EmailJS not configured yet</span>';
+          setTimeout(() => {
+            btn.innerHTML = '<span class="contact-submit-text">Send Message <span class="arrow">&rarr;</span></span>';
+          }, 3000);
+          return;
+        }
+
+        // Show loading state
+        btn.disabled = true;
+        btn.innerHTML = '<span class="contact-submit-text">Sending…</span>';
+
+        const templateParams = {
+          from_name:  form.querySelector('[name="name"]').value,
+          from_email: form.querySelector('[name="email"]').value,
+          subject:    form.querySelector('[name="subject"]').value,
+          message:    form.querySelector('[name="message"]').value,
+          to_email:   'tarunkalyan3690@gmail.com',
+        };
+
+        try {
+          await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+          btn.classList.add('sent');
+          btn.innerHTML = '<span class="contact-submit-text">Message Sent ✓</span>';
           form.reset();
-        }, 3000);
+          setTimeout(() => {
+            btn.classList.remove('sent');
+            btn.disabled = false;
+            btn.innerHTML = '<span class="contact-submit-text">Send Message <span class="arrow">&rarr;</span></span>';
+          }, 4000);
+        } catch (err) {
+          console.error('EmailJS error:', err);
+          btn.innerHTML = '<span class="contact-submit-text">Failed — try emailing directly</span>';
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.innerHTML = '<span class="contact-submit-text">Send Message <span class="arrow">&rarr;</span></span>';
+          }, 4000);
+        }
       });
     }
   }
