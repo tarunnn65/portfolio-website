@@ -225,9 +225,9 @@ class GalaxyPortfolio {
     // Setup: sign up at emailjs.com → create a service linked to your Gmail
     //        → create a template with variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
     //        → replace the three placeholders below with your actual IDs
-    const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'user_abc123'
-    const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_gmail'
-    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_portfolio'
+    const EMAILJS_PUBLIC_KEY = 'wVzN-JU3sOAOLbcEP';   // e.g. 'user_abc123'
+    const EMAILJS_SERVICE_ID = 'service_nkd9eqm';   // e.g. 'service_gmail'
+    const EMAILJS_TEMPLATE_ID = 'service_nkd9eq';  // e.g. 'template_portfolio'
 
     if (typeof emailjs !== 'undefined') {
       emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
@@ -253,11 +253,11 @@ class GalaxyPortfolio {
         btn.innerHTML = '<span class="contact-submit-text">Sending…</span>';
 
         const templateParams = {
-          from_name:  form.querySelector('[name="name"]').value,
+          from_name: form.querySelector('[name="name"]').value,
           from_email: form.querySelector('[name="email"]').value,
-          subject:    form.querySelector('[name="subject"]').value,
-          message:    form.querySelector('[name="message"]').value,
-          to_email:   'tarunkalyan3690@gmail.com',
+          subject: form.querySelector('[name="subject"]').value,
+          message: form.querySelector('[name="message"]').value,
+          to_email: 'tarunkalyan3690@gmail.com',
         };
 
         try {
@@ -541,12 +541,12 @@ class GalaxyPortfolio {
           const easeT = t * t * (3 - 2 * t); // Smoothstep easing
           const dockedX = window.innerWidth * 0.15;
           const dockedY = window.innerHeight * 0.5;
-          
+
           targetX = galaxyX + (dockedX - galaxyX) * easeT;
           // Add a beautiful ballistic arc so it flies "up then down"
           const arcHeight = window.innerHeight * 0.35;
           targetY = galaxyY + (dockedY - galaxyY) * easeT - Math.sin(easeT * Math.PI) * arcHeight;
-          
+
           scale = Math.max(scale, easeT * 1.8);
         } else {
           targetX = homeX;
@@ -590,7 +590,7 @@ class GalaxyPortfolio {
     const ctx = this.ctx;
     ctx.save();
     ctx.globalAlpha = 1 - scrollP; // Fade out as we scroll down
-    
+
     const rawScrollY = window.scrollY || 0;
     const aboutScale = Math.min(1, Math.max(0, rawScrollY / (window.innerHeight * 0.2)));
 
@@ -603,10 +603,10 @@ class GalaxyPortfolio {
       if (!pos) return;
 
       ctx.beginPath();
-      
+
       const sx = this.cx, sy = this.cy;
       const ex = pos.x, ey = pos.y;
-      
+
       // Arc logic
       const dx = ex - sx, dy = ey - sy;
       const cpX = sx + dx * 0.3 + dy * 0.2;
@@ -618,7 +618,7 @@ class GalaxyPortfolio {
       // Colored tether
       const grad = ctx.createLinearGradient(sx, sy, ex, ey);
       grad.addColorStop(0, 'rgba(255,255,255,0.0)');
-      
+
       // Apply the aboutScale opacity to the glowing ends of the tether so it cleanly fades in
       let baseAlpha2 = 0.2;
       let baseAlpha4 = 0.4;
@@ -626,7 +626,7 @@ class GalaxyPortfolio {
         baseAlpha2 *= aboutScale;
         baseAlpha4 *= aboutScale;
       }
-      
+
       grad.addColorStop(0.3, sec.node.glowColor.replace('0.6', baseAlpha2.toString()));
       grad.addColorStop(1, sec.node.glowColor.replace('0.6', baseAlpha4.toString()));
 
