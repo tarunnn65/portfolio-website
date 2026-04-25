@@ -1,4 +1,4 @@
-import { profile, sections } from './data.js';
+import { profile, sections } from './data.js?v=3';
 
 // ═══════════════════════════════════════════════════
 // HELPERS
