@@ -1,4 +1,5 @@
 import { profile, sections } from './data.js?v=3';
+import { PipelineTerminal } from './terminal.js';
 
 // ═══════════════════════════════════════════════════
 // HELPERS
@@ -275,6 +276,15 @@ class GalaxyPortfolio {
         }
       });
     }
+
+    // Terminal demo — event delegation on the sections container
+    const terminal = new PipelineTerminal();
+    const sectionsContainer = document.getElementById('sections-container');
+    if (sectionsContainer) {
+      sectionsContainer.addEventListener('click', e => {
+        if (e.target.classList.contains('demo-btn')) terminal.open();
+      });
+    }
   }
 
   buildSectionHTML(sec) {
@@ -285,6 +295,9 @@ class GalaxyPortfolio {
       const linkHtml = item.link && item.link !== '#'
         ? `<a class="section-item-link" href="${item.link}" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>`
         : '';
+      const demoHtml = item.demo
+        ? `<button class="section-item-demo demo-btn" aria-label="Demo ${item.label}">&#9654;&nbsp;&nbsp;Demo it yourself</button>`
+        : '';
       return `
         <div class="section-item">
           <div class="section-item-header">
@@ -292,7 +305,10 @@ class GalaxyPortfolio {
             ${tagsHtml}
           </div>
           ${item.description ? `<p>${item.description}</p>` : ''}
-          ${linkHtml}
+          <div class="section-item-actions">
+            ${linkHtml}
+            ${demoHtml}
+          </div>
         </div>
       `;
     }).join('');

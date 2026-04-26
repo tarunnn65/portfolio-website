@@ -34,7 +34,8 @@ export const sections = [
         label: "Multi-Process Pipeline Engine",
         description: "Built a multi-process pipeline engine in C using fork(), exec(), and Unix pipes. Designed a length-prefixed packet protocol for robust IPC, coordinated concurrent worker processes with backpressure, and implemented graceful fault handling for broken pipes and child crashes.",
         tags: ["C", "Unix IPC", "Concurrency"],
-        link: "#"
+        link: "https://github.com/tarunnn65/pipeline-engine-project",
+        demo: true
       },
       {
         label: "Order Matching Engine – Sports Betting Exchange",

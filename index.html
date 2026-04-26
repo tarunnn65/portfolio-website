@@ -65,6 +65,25 @@
   <!-- Sections populated by JS -->
   <main id="sections-container"></main>
 
+  <!-- Terminal Simulator Modal -->
+  <div id="terminal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Terminal Simulator">
+    <div class="terminal-window">
+      <div class="terminal-head">
+        <div class="term-lights">
+          <button id="terminal-close" class="term-light close" aria-label="Close terminal"></button>
+          <div class="term-light minimize"></div>
+          <div class="term-light maximize"></div>
+        </div>
+        <div class="term-title">user@portfolio: ~/pipeline-engine</div>
+      </div>
+      <div id="terminal-body" class="terminal-body"></div>
+      <div class="terminal-input-line">
+        <span class="t-prompt">user@portfolio:~/pipeline$</span>
+        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus aria-label="Terminal input" />
+      </div>
+    </div>
+  </div>
+
   <footer id="site-footer">
     <span>&copy; 2026 Tarunraj Kalyanasundaram</span>
   </footer>
