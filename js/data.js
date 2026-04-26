@@ -1,7 +1,7 @@
 export const profile = {
   name: "Tarunraj Kalyanasundaram",
   title: "CS & Astrophysics Specialist @ UofT",
-  tagline: "Low-level systems, astrophysics research, and hardware — built from first principles.",
+  tagline: "Computer Science and Astrophysics at the University of Toronto. Building systems, doing science, and shipping things.",
   bio: "A Dean's List scholar pursuing a double specialization in Computer Science and Astronomy & Physics at the University of Toronto, with a Mathematics minor. My work spans multi-process systems programming in C, low-latency trading engines in Java, quantum computing simulations in Python, and real-time embedded firmware for electric vehicles. Whether I'm designing IPC protocols, modeling the Drake Equation via Monte Carlo methods, or racing an EV I helped build — I'm always engineering at the edge of what's possible.",
   links: {
     github: "https://github.com/tarunnn65",
@@ -20,19 +20,13 @@ export const sections = [
   },
   {
     id: "projects", label: "Projects", number: "01",
-    tagline: "From Pipelines to Quantum Bombs.",
+    tagline: "Selected technical projects.",
     description: "A selection of technical projects spanning systems programming, low-level game dev, quantum simulation, and predictive analytics.",
     node: { arm: 0, position: 0.52, color: "#5eead4", glowColor: "rgba(94,234,212,0.6)", size: 28 },
     items: [
       {
-        label: "Interactive Space Portfolio",
-        description: "Designed and built this very portfolio from scratch — a cinematic, scroll-driven galaxy interface rendered on an HTML5 Canvas. Features a spiral galaxy with a live black hole, flying node system driven by IntersectionObserver and requestAnimationFrame, painterly WebGL-style glow effects, and a fully functional contact form via EmailJS. Data-driven architecture separates content from rendering, and the entire site is deployed via GitHub Actions to GitHub Pages with zero build tooling.",
-        tags: ["HTML5 Canvas", "JavaScript", "CSS", "GitHub Pages", "EmailJS"],
-        link: "https://github.com/tarunnn65/portfolio-website"
-      },
-      {
         label: "Multi-Process Pipeline Engine",
-        description: "Built a multi-process pipeline engine in C using fork(), exec(), and Unix pipes. Designed a length-prefixed packet protocol for robust IPC, coordinated concurrent worker processes with backpressure, and implemented graceful fault handling for broken pipes and child crashes.",
+        description: "Designed a length-prefixed packet protocol over Unix pipes to handle the partial-read edge case that breaks naive IPC implementations.",
         tags: ["C", "Unix IPC", "Concurrency"],
         link: "https://github.com/tarunnn65/pipeline-engine-project",
         demo: true
@@ -61,11 +55,17 @@ export const sections = [
         tags: ["Python", "Data Science", "ML"],
         link: "#"
       },
+      {
+        label: "Interactive Space Portfolio",
+        description: "Designed and built this very portfolio from scratch — a cinematic, scroll-driven galaxy interface rendered on an HTML5 Canvas. Features a spiral galaxy with a live black hole, flying node system driven by IntersectionObserver and requestAnimationFrame, painterly WebGL-style glow effects, and a fully functional contact form via EmailJS. Data-driven architecture separates content from rendering, and the entire site is deployed via GitHub Actions to GitHub Pages with zero build tooling.",
+        tags: ["HTML5 Canvas", "JavaScript", "CSS", "GitHub Pages", "EmailJS"],
+        link: "https://github.com/tarunnn65/portfolio-website"
+      },
     ]
   },
   {
     id: "experience", label: "Experience", number: "02",
-    tagline: "Electric Vehicles, Monte Carlo, and Racing Podiums.",
+    tagline: "Hands-on work in hardware and computational science.",
     description: "Hands-on roles at the intersection of embedded hardware, computational astrophysics, and competitive engineering.",
     node: { arm: 1, position: 0.50, color: "#93c5fd", glowColor: "rgba(147,197,253,0.6)", size: 26 },
     items: [
@@ -119,7 +119,7 @@ export const sections = [
   {
     id: "contact", label: "Contact", number: "05",
     type: "contact",
-    tagline: "Initiate communication across the grid.",
+    tagline: "Get in touch.",
     description: "Whether it's about systems engineering, quantum physics, or collaboration on new ventures — I'm always open to connecting.",
     node: { arm: 0, position: 0.78, color: "#fde68a", glowColor: "rgba(253,230,138,0.6)", size: 24 },
     items: [],
