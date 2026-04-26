@@ -617,6 +617,27 @@ body {
   text-transform: uppercase;
 }
 
+.section-item-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5eead4;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(94, 234, 212, 0.3);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.section-item-link:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateX(3px);
+}
+
 /* ═══════════════════════════════════════════════════
    CONTACT SECTION (within portfolio-section)
    ═══════════════════════════════════════════════════ */

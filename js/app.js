@@ -282,6 +282,9 @@ class GalaxyPortfolio {
       const tagsHtml = item.tags && item.tags.length > 0
         ? `<div class="section-item-tags">${item.tags.map(t => `<span class="section-tag">${t}</span>`).join('')}</div>`
         : '';
+      const linkHtml = item.link && item.link !== '#'
+        ? `<a class="section-item-link" href="${item.link}" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>`
+        : '';
       return `
         <div class="section-item">
           <div class="section-item-header">
@@ -289,6 +292,7 @@ class GalaxyPortfolio {
             ${tagsHtml}
           </div>
           ${item.description ? `<p>${item.description}</p>` : ''}
+          ${linkHtml}
         </div>
       `;
     }).join('');

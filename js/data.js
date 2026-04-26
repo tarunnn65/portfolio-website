@@ -25,6 +25,12 @@ export const sections = [
     node: { arm: 0, position: 0.52, color: "#5eead4", glowColor: "rgba(94,234,212,0.6)", size: 28 },
     items: [
       {
+        label: "Interactive Space Portfolio",
+        description: "Designed and built this very portfolio from scratch — a cinematic, scroll-driven galaxy interface rendered on an HTML5 Canvas. Features a spiral galaxy with a live black hole, flying node system driven by IntersectionObserver and requestAnimationFrame, painterly WebGL-style glow effects, and a fully functional contact form via EmailJS. Data-driven architecture separates content from rendering, and the entire site is deployed via GitHub Actions to GitHub Pages with zero build tooling.",
+        tags: ["HTML5 Canvas", "JavaScript", "CSS", "GitHub Pages", "EmailJS"],
+        link: "https://github.com/tarunnn65/portfolio-website"
+      },
+      {
         label: "Multi-Process Pipeline Engine",
         description: "Built a multi-process pipeline engine in C using fork(), exec(), and Unix pipes. Designed a length-prefixed packet protocol for robust IPC, coordinated concurrent worker processes with backpressure, and implemented graceful fault handling for broken pipes and child crashes.",
         tags: ["C", "Unix IPC", "Concurrency"],
